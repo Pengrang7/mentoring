@@ -1,26 +1,20 @@
 package com.example.mentoring.controller;
 
-
 import com.example.mentoring.dto.MemberDTO;
 import com.example.mentoring.service.MemberService;
 import lombok.RequiredArgsConstructor;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
-
-@Controller
+@RestController  // @Controller 대신 @RestController 사용
 @RequiredArgsConstructor
 public class MemberController {
-    private final MemberService memberService;  // 의존성 주입
+    private final MemberService memberService;
 
     @GetMapping("/member/list")
-    public String findAll(Model model) {
-        List<MemberDTO> memberDTOList = memberService.findAll();
-        model.addAttribute("memberList", memberDTOList);
-        return "list";  // templates/list.html을 찾음
+    public List<MemberDTO> findAll() {  // Model 파라미터와 String 리턴 제거
+        return memberService.findAll();  // DTO 리스트를 직접 반환
     }
-} 
+
+}

@@ -14,7 +14,6 @@ public class MemberService {
 
     private final MemberRepository memberRepository; // 먼저 jpa, mysql dependency 추가
 
-
     public List<MemberDTO> findAll() {
         List<MemberEntity> memberEntityList = memberRepository.findAll();
         List<MemberDTO> memberDTOList = new ArrayList<>();
@@ -23,4 +22,5 @@ public class MemberService {
         }
         return memberDTOList;
     }
+
 }
