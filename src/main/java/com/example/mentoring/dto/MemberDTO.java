@@ -1,15 +1,14 @@
 package com.example.mentoring.dto;
 
 import com.example.mentoring.entity.MemberEntity;
-import lombok.Getter;
+
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @ToString
 public class MemberDTO {
@@ -19,7 +18,7 @@ public class MemberDTO {
     private String email;
     private Date birth;
     private Date joinDate;
-    private Integer phone;
+    private String phone;
     private String Id;
 
     public static MemberDTO toMemberDTO(MemberEntity memberEntity) {
